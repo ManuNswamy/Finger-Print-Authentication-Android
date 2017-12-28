@@ -5,7 +5,7 @@ Step 1 > USE_FINGERPRINT - Permission
 Request the permission to use the touch sensor and the fingerprint authentication. 
 So in the Manifest.xml, we add:
 
-<uses-permission android:name="android.permission.USE_FINGERPRINT" />
+uses-permission android:name="android.permission.USE_FINGERPRINT"
 
 Step 2> KeyGuardManager and FingerprintManager
 
