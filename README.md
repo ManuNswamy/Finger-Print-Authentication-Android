@@ -20,7 +20,7 @@ FingerprintManager fingerprintManager = (FingerprintManager)
 
 Step 2A> Check whether the finger print sensor is available
 
- if (!fingerprintManager.isHardwareDetected()) {     
+ if (!fingerprintManager.IsHardwareDetected) {     
     //Fingerprint authentication not supported
    }
 
