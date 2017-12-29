@@ -41,9 +41,11 @@ Step 3> Get the reference and initialize KeyStore and KeyGenerator
 keyStore = KeyStore.GetInstance("AndroidKeyStore");
 
 // Key generator to generate the key
+
 keyGenerator = KeyGenerator.GetInstance(KeyProperties.KeyAlgorithmAes, "AndroidKeyStore");
 
 //we specify the usage of the key: for encryption and decryption
+
  keyGenerator.Init(new KeyGenParameterSpec.Builder(KEY_NAME, KeyStorePurpose.Encrypt | KeyStorePurpose.Decrypt)
                 .SetBlockModes(KeyProperties.BlockModeCbc)
                 .SetUserAuthenticationRequired(true)
