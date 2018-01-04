@@ -30,14 +30,16 @@ namespace FingerPrintAuth
             EditText username = FindViewById<EditText>(Resource.Id.edit_text_username);
             EditText password = FindViewById<EditText>(Resource.Id.edit_text_password);
             Button button_login = FindViewById<Button>(Resource.Id.button_login);
+
             fingerprintManager = (FingerprintManager)GetSystemService(FingerprintService);
+            AuthService authService = new AuthService();
 
             button_login.Click += delegate
             {
-                if (prefs.GetString("username", "null") == "null" || prefs.GetString("password", "null") == "null")
+                if (authService.UserName == null && authService.Password ==null)
                 {
-                    editor.PutString("username", username.Text);
-                    editor.PutString("password", password.Text);
+                    
+                    authService.SaveCredentials(username.Text, password.Text);
                     Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
                     Android.App.AlertDialog alert = dialog.Create();
                     alert.SetTitle("Finger Print Authentication");
@@ -67,7 +69,7 @@ namespace FingerPrintAuth
                 }
                 else
                 {
-                    if (prefs.GetString("username", null) == username.Text && prefs.GetString("password", null) == password.Text)
+                    if (authService.UserName == username.Text && authService.Password == password.Text)
                     {
                         Toast.MakeText(this, "Login Successful", ToastLength.Long).Show();
                     }

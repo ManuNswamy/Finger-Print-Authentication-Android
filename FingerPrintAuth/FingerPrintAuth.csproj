@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -78,9 +81,14 @@
     <Reference Include="Xamarin.Android.Support.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Auth.Android">
+      <HintPath>..\Components\xamarin.auth-1.2.3.1\lib\android\Xamarin.Auth.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthService.cs" />
     <Compile Include="FingerprintHandler.cs" />
+    <Compile Include="IAuthService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Normal_Auth_Activity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -122,7 +130,12 @@
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable\fingerprint_icon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <XamarinComponentReference Include="xamarin.auth">
+      <Visible>False</Visible>
+      <Version>1.2.3.1</Version>
+    </XamarinComponentReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

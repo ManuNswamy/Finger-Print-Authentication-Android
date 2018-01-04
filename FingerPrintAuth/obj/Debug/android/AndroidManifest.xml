@@ -13,6 +13,8 @@
       </intent-filter>
     </activity>
     <activity android:label="Normal_Auth_Activity" android:name="md5e8dab7e953c280244f88148124df3701.Normal_Auth_Activity" />
+    <activity android:label="Web Authenticator" android:name="md550f8a10a740eb4fb6376baab8337ce22.FormAuthenticatorActivity" />
+    <activity android:label="Web Authenticator" android:name="md550f8a10a740eb4fb6376baab8337ce22.WebAuthenticatorActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.company.FingerPrintAuth.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">

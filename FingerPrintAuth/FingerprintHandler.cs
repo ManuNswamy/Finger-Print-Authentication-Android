@@ -32,9 +32,9 @@ namespace FingerPrintAuth
         }
 
         public override void OnAuthenticationSucceeded(FingerprintManager.AuthenticationResult result)
-        {
-            
-            Toast.MakeText(context, "Fingerprint Authentication Successful", ToastLength.Long).Show();
+        {            
+            Toast.MakeText(context, "Fingerprint Authentication Successful.", ToastLength.Long).Show();
+           
         }
 
     }
