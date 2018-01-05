@@ -31,6 +31,13 @@ namespace FingerPrintAuth
 
             //Set your main view here
             //SetContentView(Resource.Layout.main);
+        }
+
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@ RESUME METHOD ");
 
             ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
             ISharedPreferencesEditor editor = prefs.Edit();
@@ -63,6 +70,10 @@ namespace FingerPrintAuth
                         FingerprintHandler helper = new FingerprintHandler(this);
                         helper.StartAuthentication(fingerprintManager, cryptoObject);
                     }
+                    else
+                    {
+
+                    }
                 }
             }
             else
@@ -70,7 +81,6 @@ namespace FingerPrintAuth
                 this.StartActivity(new Intent(this, typeof(Normal_Auth_Activity)));
             }
         }
-
         private bool CipherInit()
         {
             try
